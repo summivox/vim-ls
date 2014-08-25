@@ -56,10 +56,10 @@ highlight default link lsString String
 
 " Matches decimal/floating-point numbers like 10.42e-8.
 syntax match lsFloat
-\ /\<\d[0-9_]*\%(\.\d[0-9_]*\)\?\%(e[+-]\?\d[0-9_]*\)\?\k*/
+\ /\<\d[0-9_]*\%(\.\d[0-9_]*\)\?\%(e[+-]\?\d[0-9_]*\)\?\%(\a\k*\)\?/
 \ contains=lsNumberComment
 highlight default link lsFloat Float
-syntax match lsNumberComment /\d\+\zs\%(e[+-]\?\d\)\@!\k*\>/ contained
+syntax match lsNumberComment /\d\+\zs\%(e[+-]\?\d\)\@!\a\k*\>/ contained
 highlight default link lsNumberComment Comment
 " Matches hex numbers like 0xfff, 0x000.
 syntax match lsNumber /\<0x\x\+/
