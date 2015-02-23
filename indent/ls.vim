@@ -23,7 +23,7 @@ endif
 " Keywords to indent after
 let s:INDENT_AFTER_KEYWORD = '^\%(if\|unless\|else\|for\|while\|until\|'
 \                          . 'loop\|case\|default\|try\|catch\|finally\|'
-\                          . 'class\|do\|new\|let\|with\)\>'
+\                          . 'class\|do\|new\|let\|with\|function\)\>'
 
 " Operators to indent after
 let s:INDENT_AFTER_OPERATOR = '\%([([{:=]\|[-=]>\)$'
