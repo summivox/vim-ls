@@ -29,7 +29,7 @@ let s:INDENT_AFTER_KEYWORD = '^\%(if\|unless\|else\|for\|while\|until\|'
 let s:INDENT_AFTER_OPERATOR = '\%([([{:=]\|[-=]>\)$'
 
 " Keywords and operators that continue a line
-let s:CONTINUATION = '\<\%(is\|isnt\|and\|or\)\>$'
+let s:CONTINUATION = '\<\%(is\|isnt\|and\|or\|do\)\>$'
 \                  . '\|'
 \                  . '\%(-\@<!-\|+\@<!+\|<\|[-~]\@<!>\|\*\|/\@<!/\|%\||\|'
 \                  . '&\|,\|\.\@<!\.\)$'
