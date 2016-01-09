@@ -22,7 +22,7 @@ endif
 
 " Keywords to indent after
 let s:INDENT_AFTER_KEYWORD = '^\%(if\|unless\|else\|for\|while\|until\|'
-\                          . 'loop\|case\|default\|try\|catch\|finally\|'
+\                          . 'loop\|case\||\|default\|try\|catch\|finally\|'
 \                          . 'class\|do\|new\|let\|with\|function\)\>'
 
 " Operators to indent after
@@ -162,7 +162,7 @@ function! s:GetMatch(curline)
   elseif firstchar == ']'
     return s:SearchPair('\[', '\]')
   elseif a:curline =~ '^else\>'
-    return s:SearchPair('\<\%(if\|unless\|case\|when\)\>', '\<else\>')
+    return s:SearchPair('\<\%(if\|unless\|case\||\|when\)\>', '\<else\>')
   elseif a:curline =~ '^catch\>'
     return s:SearchPair('\<try\>', '\<catch\>')
   elseif a:curline =~ '^finally\>'
