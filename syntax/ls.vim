@@ -35,8 +35,11 @@ highlight default link lsLabel Label
 syntax match lsException /\<\%(try\|catch\|finally\)\>/
 highlight default link lsException Exception
 
-syntax match lsKeyword /\<\%(new\|in\%(stanceof\)\?\|typeof\|delete\|and\|o[fr]\|not\|xor\|is\|isnt\|imp\%(ort\%( all\)\?\|lements\)\|extends\|loop\|from\|to\|til\|by\|do\|function\|class\|let\|with\|export\|const\|var\|eval\|super\|fallthrough\|debugger\|where\|yield\)\>/
+syntax match lsKeyword /\<\%(new\|in\%(stanceof\)\?\|typeof\|delete\|and\|o[fr]\|not\|xor\|is\|isnt\|imp\%(ort\%( all\)\?\|lements\)\|extends\|loop\|from\|to\|til\|by\|do\|function\|class\|let\|with\|export\|const\|var\|eval\|super\|fallthrough\|where\|yield\)\>/
 highlight default link lsKeyword Keyword
+
+syntax match lsDebug /\<\%(assert\|console\|debugger\)\>/
+highlight default link lsDebug Debug
 
 syntax match lsBoolean /\<\%(true\|false\|yes\|no\|on\|off\|null\|void\)\>/
 highlight default link lsBoolean Boolean
