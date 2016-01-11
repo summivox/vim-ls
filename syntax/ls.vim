@@ -20,7 +20,7 @@ highlight default link lsIdentifier Identifier
 " These are 'matches' rather than 'keywords' because vim's highlighting priority
 " for keywords (the highest) causes them to be wrongly highlighted when used as
 " dot-properties.
-syntax match lsStatement /\<\%(return\|break\|continue\|throw\)\>/
+syntax match lsStatement /\<\%(return\|break\|continue\)\>/
 highlight default link lsStatement Statement
 
 syntax match lsRepeat /\<\%(for\%( own\| ever\)\?\|while\|until\)\>/
@@ -29,10 +29,13 @@ highlight default link lsRepeat Repeat
 syntax match lsConditional /\<\%(if\|then\|else\|unless\|switch\|match\)\>\|=>/
 highlight default link lsConditional Conditional
 
-syntax match lsLabel /\<\%(when\|case\|default\)\>\||\|^\s\+:[$A-Za-z_]\k*\%(-[a-zA-Z]\+\)*/
+syntax match lsLabel /\<\%(when\|case\|default\)\>\| \@=| \@=/
 highlight default link lsLabel Label
 
-syntax match lsException /\<\%(try\|catch\|finally\)\>/
+syntax match lsLoopLabel /^\s\+:[$A-Za-z_]\k*\%(-[a-zA-Z]\+\)*/
+highlight default link lsLoopLabel Label
+
+syntax match lsException /\<\%(try\|catch\|finally\|throw\)\>/
 highlight default link lsException Exception
 
 syntax match lsKeyword /\<\%(new\|in\%(stanceof\)\?\|typeof\|delete\|and\|o[fr]\|not\|xor\|is\|isnt\|imp\%(ort\%( all\)\?\|lements\)\|extends\|loop\|from\|to\|til\|by\|do\|function\|class\|let\|with\|export\|const\|var\|eval\|super\|fallthrough\|where\|yield\)\>/
@@ -92,6 +95,10 @@ syntax region lsInterpolation matchgroup=lsInterpDelim
 \                                 start=/\#{/ end=/}/
 \                                 contained contains=TOP
 highlight default link lsInterpDelim Delimiter
+
+"syntax match lsFunctionName /[$A-Za-z_]\k*\(-[a-zA-Z]\+\)*/ contained
+"syntax region lsNamedFunction matchgroup=lsNamedFunctionBoundary start=/\%(!\|\~\|!\~\|\~!\)\?function\*\? / end=/(\@=\| \|$/ keepend contains=lsFunctionName
+"highlight default link lsFunctionName Function
 
 " Matches escape sequences like \000, \x00, \u0000, \n.
 syntax match lsEscape /\\\d\d\d\|\\x\x\{2\}\|\\u\x\{4\}\|\\./ contained
