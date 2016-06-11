@@ -94,7 +94,7 @@ highlight default link lsInfixFunc Identifier
 syntax region lsInterpolation matchgroup=lsInterpDelim
 \                                 start=/\#{/ end=/}/
 \                                 contained contains=TOP
-highlight default link lsInterpDelim Delimiter
+highlight default link lsInterpDelim Operator
 
 "syntax match lsFunctionName /[$A-Za-z_]\k*\(-[a-zA-Z]\+\)*/ contained
 "syntax region lsNamedFunction matchgroup=lsNamedFunctionBoundary start=/\%(!\|\~\|!\~\|\~!\)\?function\*\? / end=/(\@=\| \|$/ keepend contains=lsFunctionName
