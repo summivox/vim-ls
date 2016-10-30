@@ -23,7 +23,7 @@ highlight default link lsIdentifier Identifier
 syntax match lsStatement /\<\%(return\|break\|continue\)\>/
 highlight default link lsStatement Statement
 
-syntax match lsRepeat /\<\%(for\%( own\| ever\)\?\|while\|until\)\>/
+syntax match lsRepeat /\<\%(for\%( own\| ever\)\?\|while\|until\|loop\)\>/
 highlight default link lsRepeat Repeat
 
 syntax match lsConditional /\<\%(if\|then\|else\|unless\|switch\|match\)\>\|=>/
@@ -38,7 +38,7 @@ highlight default link lsLoopLabel Label
 syntax match lsException /\<\%(try\|catch\|finally\|throw\)\>/
 highlight default link lsException Exception
 
-syntax match lsKeyword /\<\%(new\|in\%(stanceof\)\?\|typeof\|delete\|and\|o[fr]\|not\|xor\|is\|isnt\|imp\%(ort\%( all\)\?\|lements\)\|extends\|loop\|from\|to\|til\|by\|do\|function\|class\|let\|with\|export\|const\|var\|eval\|super\|fallthrough\|where\|yield\)\>/
+syntax match lsKeyword /\<\%(new\|in\%(stanceof\)\?\|typeof\|delete\|and\|o[fr]\|not\|xor\|is\|isnt\|imp\%(ort\%( all\)\?\|lements\)\|extends\|from\|to\|til\|by\|do\|function\|class\|let\|with\|export\|const\|var\|eval\|super\|fallthrough\|where\|yield\)\>/
 highlight default link lsKeyword Keyword
 
 syntax match lsDebug /\<\%(assert\|console\|debugger\)\>/
@@ -75,6 +75,9 @@ syntax match lsNumber /\%(\<-\?\|-\)\zs0x\x\+/
 " Matches N radix numbers like 2@1010.
 syntax match lsNumber
 \ /\%(\<-\?\|-\)\zs\%(\d*\)\~[0-9A-Za-z][0-9A-Za-z_]*/
+" Matches special double values Infinity and NaN
+" NOTE: `-Infinity` has to be included due to hyphened identifiers
+syntax keyword lsNumber Infinity -Infinity NaN
 highlight default link lsNumber Number
 
 " Displays an error for reserved words.
